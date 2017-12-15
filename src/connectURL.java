@@ -25,7 +25,6 @@ public class connectURL {
 	}
 	@SuppressWarnings({ "static-access" })
 	public static void main(String[] args) throws ParseException {
-		// TODO Auto-generated method stub
 		Options options = new Options();
 
 		Option argconnecturl = OptionBuilder.withArgName( "connecturl" )

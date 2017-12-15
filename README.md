@@ -55,7 +55,6 @@ msdb | 38464 | null
 ReportServer$SQLEXPRESS | 16384 | null
 ReportServer$SQLEXPRESSTempDB | 16384 | null
 tempdb | 16384 | null
-
 ```
 
 
