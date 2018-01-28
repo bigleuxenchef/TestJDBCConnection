@@ -2,7 +2,7 @@
 
 ## Background
 
-How many times while installing solution to production we need to test each elements of the solution one by one ahead of the first end to end test. I has heppened one more time to me lately. I suggested several time to a young gun to drop enough tooling in production to help troubleshooting the basics. A good example of that is how to test jdbc connection. In that respect I have built this snippet of code that can take any argument depending of the database you need to test. In my case I needed to established connectivity with MS SQL Server and it was not an option to drop sql workbench or any "online" sql interpreter. The best and lighter way was to build a small java application with very little dependency in such a way it will be easy to validate the whole JDBC.
+How many times while installing solution to production we need to test each element of the solution one by one ahead of the first end to end test. It has happened one more time to one of my colleague lately. I suggested several time to a young gun to drop enough tooling in production to help troubleshooting the basics. A good example of that is how to test jdbc connection. In that respect I have built this snippet of code that can take any argument depending of the database you need to test. In my case I needed to established connectivity with MS SQL Server and it was not an option to drop sql workbench or any "online" sql interpreter. The best and lighter way was to build a small java application with very little dependency in such a way it will be easy to validate the whole JDBC.
 
 ### connectURL tool
 
