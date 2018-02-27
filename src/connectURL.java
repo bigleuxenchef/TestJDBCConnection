@@ -1,3 +1,6 @@
+
+
+
 import java.sql.*;
 
 import org.apache.commons.cli.CommandLine;
@@ -9,6 +12,12 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;  
 
+/**
+ * @author rumi 2018
+ * this snippet of code allows to test jdb connection easily without dropping any special tools else than java
+ * this is very useful when deploying application in production where security concerns are key. You may not want
+ * to drop an application like sql workbench just to check the connection
+ */
 @SuppressWarnings("deprecation")
 public class connectURL {
 	static void printResultSet(ResultSet rs) throws SQLException
