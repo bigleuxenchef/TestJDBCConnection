@@ -6,7 +6,7 @@ How many times while installing solution to production we need to test each elem
 
 ### connectURL tool
 
-```
+```bash
 # assuming you have the testjdbc-0.0.jar in the current directory
 >java  -cp "./testjdbc-0.0.jar" connectURL -help
 usage: connectUrl
@@ -15,15 +15,13 @@ usage: connectUrl
  -url <connecturl>   connection URL :
                      jdbc:sqlserver://<hostname>:<port>;databaseName=<db
                      name>;user=<user>;password=<password>
-                     
-                     
 
 ```
 
 
 ### Example testing MS SQL server
 
-```
+```bash
 # by default the system will test sql with the default query as highlighed :
 # SELECT TOP 10 * FROM BPASessionLog_NonUnicode
 >java -cp "/Users/rumi/Downloads/sqljdbc_6.0/enu/jre8/sqljdbc42.jar:./testjdbc-0.0.jar" connectURL -url "jdbc:sqlserver://localhost:1433;databaseName=BluePrismTraining;user=rumi;password=******"
@@ -55,6 +53,40 @@ msdb | 38464 | null
 ReportServer$SQLEXPRESS | 16384 | null
 ReportServer$SQLEXPRESSTempDB | 16384 | null
 tempdb | 16384 | null
+```
+
+
+### Maven consideration
+In order to minimize the runtime issue, it is srtongly recommended to build a jar with all dependencies, this can be achieved with the following line in maven :
+
+```xml
+<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>
+								connectURL.Main
+							</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+					<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 ```
 
 
