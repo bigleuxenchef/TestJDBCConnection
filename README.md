@@ -8,7 +8,7 @@ How many times while installing solution to production we need to test each elem
 
 ```bash
 # assuming you have the testjdbc-0.0.jar in the current directory
->java  -cp "./testjdbc-0.0.jar" connectURL -help
+>java  -cp "./testjdbc-0.0-jar-with-dependencies.jar" connectURL -help
 usage: connectUrl
  -help               print this message
  -sql <sql>          <sql command to execute>
@@ -19,12 +19,13 @@ usage: connectUrl
 ```
 
 
-### Example testing MS SQL server
+### Examples testing MS SQL server
 
 ```bash
+# Unix system
 # by default the system will test sql with the default query as highlighed :
 # SELECT TOP 10 * FROM BPASessionLog_NonUnicode
->java -cp "/Users/rumi/Downloads/sqljdbc_6.0/enu/jre8/sqljdbc42.jar:./testjdbc-0.0.jar" connectURL -url "jdbc:sqlserver://localhost:1433;databaseName=BluePrismTraining;user=rumi;password=******"
+>java -cp "/Users/rumi/Downloads/sqljdbc_6.0/enu/jre8/sqljdbc42.jar:./testjdbc-0.0-jar-with-dependencies.jar" connectURL -url "jdbc:sqlserver://localhost:1433;databaseName=BluePrismTraining;user=rumi;password=******"
 Connection String :jdbc:sqlserver://localhost:1433;databaseName=BluePrismTraining;user=rumi;password=*****
 Default SQL Command : SELECT TOP 10 * FROM BPASessionLog_NonUnicode
 1 | 1 | F25D3168-3E43-40A3-AB8A-DBFDAB308334 | Start | 1024 | HelloWorld | Main Page | null | null | ERROR: Internal : Failed to find stage linked from stage 'Start'. | 64 | 2017-08-13 15:19:14.617 | null | null | 0 | null | 0
@@ -38,12 +39,16 @@ Default SQL Command : SELECT TOP 10 * FROM BPASessionLog_NonUnicode
 7 | 1 | F25D3168-3E43-40A3-AB8A-DBFDAB308334 | Start | 1024 | HelloWorld | Main Page | null | null | null | null | 2017-08-13 16:47:08.68 | null | null | 0 | null | 0
 9 | 1 | F25D3168-3E43-40A3-AB8A-DBFDAB308334 | Start | 1024 | HelloWorld | Main Page | null | null | null | null | 2017-08-13 16:52:55.4 | null | null | 0 | null | 0
 
+
+Windows 10
+
+java -cp ".\testjdbc-0.0-jar-with-dependencies.jar;C:\Program Files\Microsoft JDBC Driver 6.0 for SQL Server\sqljdbc_6.0\enu\jre8\sqljdbc42.jar" connectURL -url "jdbc:sqlserver://localhost:1433;databaseName=BluePrismTraining;user=rumi;password=****"
 ```
 
 ### Example testing MS SQL Server with a specific query
 
 ```
->java -cp "/Users/rumi/Downloads/sqljdbc_6.0/enu/jre8/sqljdbc42.jar:./testjdbc-0.0.jar" connectURL -url "jdbc:sqlserver://localhost:1433;databaseName=BluePrismTraining;user=rumi;password=******" -sql "EXEC sp_databases"
+>java -cp "/Users/rumi/Downloads/sqljdbc_6.0/enu/jre8/sqljdbc42.jar:./testjdbc-0.0-jar-with-dependencies.jar" connectURL -url "jdbc:sqlserver://localhost:1433;databaseName=BluePrismTraining;user=rumi;password=******" -sql "EXEC sp_databases"
 Connection String :jdbc:sqlserver://localhost:1433;databaseName=BluePrismTraining;user=rumi;password=*****
 SQL Command : EXEC sp_databases
 BluePrismTraining | 3507648 | null
